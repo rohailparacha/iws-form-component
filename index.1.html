@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
+
+    <script src="https://cdn.datatables.net/buttons/1.5.4/js/dataTables.buttons.min.js" ></script>
+    <script src="https://cdn.datatables.net/select/1.2.7/js/dataTables.select.min.js" ></script>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script>
+    
+
+    
+    </script>
+    <title>Search Data</title>
+    
+    <style>
+      .im-centered {
+        margin: auto;
+        max-width: 300px;
+      }
+      .borderlist {
+        list-style-position: inside;
+        border: 1px solid black;
+      }
+    </style>
+
+    <script>
+      
+      function sub(){
+      var form = new FormData();
+form.append("file", document.getElementById('idexample').files[0]);
+form.append("data", "[{\"filename\":\"dog.jpg\", \"object\": [{\"name\":\"category1\", \"bndbox\": {\"xmin\": 1,\"ymin\": 1,\"xmax\": 100, \"ymax\": 100}}]}]");
+
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://app.nanonets.com/api/v2/ObjectDetection/Model/6505a0b3-82da-48fc-a37d-1e140854b8dd/LabelFile/",
+  "method": "POST",
+  "headers": {
+    "Authorization": "Basic Nmx4azJkWTgzb2RkaTItdTdYb20waG9fNDJuWU80cFI6"
+    
+  },
+  "processData": false,
+  "contentType": false,
+  "mimeType": "multipart/form-data",
+  "data": form
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+
+}
+    
+    </script>
+  </head>
+
+  <body>
+    
+    <div class="container">
+        
+        
+      <div class="row">
+            <h2>Listing Page</h2>
+      
+<form>
+
+    <input type="file" id="idexample" />
+
+    <input type="button" onclick="sub()" value="Submit"/>
+</form>    
+      
+      </div>
+    </div>
+
+    
+  </body>
+</html>
